@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Raymond Tembo | Educator · Entrepreneur · Preacher</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --crimson:   #8B1A1A;
+      --gold:      #C9933A;
+      --cream:     #FAF6EF;
+      --charcoal:  #1C1C1C;
+      --muted:     #5A5A5A;
+      --border:    #E2D9C8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--charcoal);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 1.25rem;
+      height: 56px;
+    }
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+      letter-spacing: .03em;
+    }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a {
+      color: #ccc; text-decoration: none;
+      font-size: .85rem; font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--charcoal);
+      color: #fff;
+      padding: 4rem 1.25rem 3.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 60% 0%, rgba(139,26,26,.45) 0%, transparent 70%);
+    }
+    .hero-eyebrow {
+      font-size: .75rem; letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .75rem;
+      position: relative;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 8vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.1;
+      position: relative;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero-sub {
+      margin-top: 1rem;
+      color: #bbb;
+      font-size: 1rem;
+      max-width: 480px;
+      margin-left: auto; margin-right: auto;
+      position: relative;
+    }
+    .eagle-verse {
+      margin-top: 2rem;
+      display: inline-block;
+      border-left: 3px solid var(--gold);
+      padding: .5rem 1rem;
+      font-style: italic;
+      color: #ddd;
+      font-size: .9rem;
+      text-align: left;
+      position: relative;
+    }
+    .cta-row {
+      margin-top: 2rem;
+      display: flex; flex-wrap: wrap; gap: .75rem;
+      justify-content: center;
+      position: relative;
+    }
+    .btn {
+      display: inline-block;
+      padding: .7rem 1.5rem;
+      border-radius: 3px;
+      font-size: .9rem; font-weight: 600;
+      text-decoration: none;
+      transition: opacity .2s, transform .15s;
+    }
+    .btn:active { transform: scale(.97); }
+    .btn-primary { background: var(--crimson); color: #fff; }
+    .btn-outline { border: 1.5px solid var(--gold); color: var(--gold); }
+    .btn:hover { opacity: .88; }
+
+    /* ── SECTIONS ── */
+    section { padding: 3rem 1.25rem; }
+    .section-label {
+      font-size: .7rem; letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .4rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .divider {
+      width: 40px; height: 3px;
+      background: var(--crimson);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: #fff; }
+    .about-body { color: var(--muted); line-height: 1.8; }
+    .tags {
+      display: flex; flex-wrap: wrap; gap: .5rem;
+      margin-top: 1.25rem;
+    }
+    .tag {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: .3rem .75rem;
+      font-size: .8rem;
+      color: var(--charcoal);
+    }
+
+    /* ── SCHOOL ── */
+    #school { background: var(--cream); }
+    .info-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--crimson);
+      border-radius: 4px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .info-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      margin-bottom: .5rem;
+    }
+    .info-card p { color: var(--muted); font-size: .9rem; line-height: 1.7; }
+    .motto {
+      margin-top: 1.25rem;
+      background: var(--charcoal);
+      color: var(--gold);
+      padding: 1rem 1.25rem;
+      border-radius: 3px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      text-align: center;
+    }
+
+    /* ── FERTILIZER ── */
+    #fertilizer { background: #fff; }
+    .benefit-list { list-style: none; margin-top: 1rem; }
+    .benefit-list li {
+      padding: .55rem 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .9rem;
+      display: flex; align-items: flex-start; gap: .6rem;
+    }
+    .benefit-list li::before {
+      content: '✓';
+      color: var(--crimson);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--cream); }
+    .service-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .75rem;
+      margin-top: 1rem;
+    }
+    .service-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1rem;
+    }
+    .service-item h4 {
+      font-size: .9rem; font-weight: 600;
+      margin-bottom: .3rem;
+    }
+    .service-item p { font-size: .8rem; color: var(--muted); }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--charcoal); color: #fff; text-align: center; }
+    #contact .section-title { color: #fff; }
+    #contact .section-label { color: var(--gold); }
+    #contact .divider { background: var(--gold); margin-left: auto; margin-right: auto; }
+    .contact-body { color: #bbb; font-size: .95rem; margin-bottom: 2rem; }
+    .contact-links {
+      display: flex; flex-direction: column; gap: .75rem;
+      align-items: center;
+    }
+    .contact-link {
+      display: flex; align-items: center; gap: .6rem;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 3px;
+      padding: .75rem 1.25rem;
+      color: #fff; text-decoration: none;
+      font-size: .9rem; width: 100%; max-width: 320px;
+      transition: background .2s;
+    }
+    .contact-link:hover { background: rgba(201,147,58,.15); }
+    .contact-icon { font-size: 1.1rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111;
+      color: #555;
+      text-align: center;
+      padding: 1.25rem;
+      font-size: .8rem;
+    }
+    footer span { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Raymond Tembo</div>
+  <div class="nav-links">
+    <a href="#school">School</a>
+    <a href="#fertilizer">Fertilizer</a>
+    <a href="#farming">Farming</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Bindura, Zimbabwe</p>
+  <h1>Raymond<br/><span>Tembo</span></h1>
+  <p class="hero-sub">Educator · Entrepreneur · Preacher<br/>Building faith, community, and opportunity in Zimbabwe.</p>
+  <div class="eagle-verse">
+    "They shall mount up with wings as eagles" — Isaiah 40:31
+  </div>
+  <div class="cta-row">
+    <a href="#school" class="btn btn-primary">JJ Christian College</a>
+    <a href="#contact" class="btn btn-outline">Get in Touch</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label">About</p>
+  <h2 class="section-title">Who I Am</h2>
+  <div class="divider"></div>
+  <p class="about-body">
+    I am Raymond Tembo — a teacher, school administrator, and preacher based in Bindura, Zimbabwe. 
+    I founded JJ Christian College to provide faith-centred, quality education to young people from ECD through secondary level. 
+    Alongside education, I distribute Nutriplant Organic Plus Fertilizer to empower local farmers, and I offer freelance educational consulting services. 
+    Everything I do is grounded in faith and a commitment to building lasting impact in my community.
+  </p>
+  <div class="tags">
+    <span class="tag">🏫 School Founder</span>
+    <span class="tag">🌱 Agri-Input Distributor</span>
+    <span class="tag">✝️ Preacher</span>
+    <span class="tag">💼 Freelancer</span>
+    <span class="tag">📍 Bindura, Zimbabwe</span>
+  </div>
+</section>
+
+<!-- SCHOOL -->
+<section id="school">
+  <p class="section-label">Education</p>
+  <h2 class="section-title">JJ Christian College</h2>
+  <div class="divider"></div>
+
+  <div class="info-card">
+    <h3>About the School</h3>
+    <p>A faith-based institution offering quality education from Early Childhood Development (ECD) through primary and secondary levels. Located at Frinton Farm, Matepatepa, Bindura.</p>
+  </div>
+
+  <div class="info-card">
+    <h3>Our Mission</h3>
+    <p>To nurture students academically, spiritually, and morally — equipping them to soar above life's challenges with the strength and vision of eagles.</p>
+  </div>
+
+  <div class="info-card">
+    <h3>Enrolment</h3>
+    <p>We welcome students at ECD, primary, and secondary levels. Contact us to learn about available places and fees for the current term.</p>
+  </div>
+
+  <div class="motto">✦ "Like Eagles We Shall Mount" ✦</div>
+</section>
+
+<!-- FERTILIZER -->
+<section id="fertilizer">
+  <p class="section-label">Agriculture</p>
+  <h2 class="section-title">Nutriplant Organic Plus</h2>
+  <div class="divider"></div>
+  <p style="color:var(--muted); font-size:.9rem; margin-bottom:1rem;">
+    I am an authorised distributor of Nutriplant Organic Plus Fertilizer by Green World — a proven solution for Zimbabwean farmers looking to improve yields naturally.
+  </p>
+  <ul class="benefit-list">
+    <li>Boosts crop yield and plant health</li>
+    <li>100% organic — safe for soil and family</li>
+    <li>Suitable for maize, vegetables, and horticulture</li>
+    <li>Available for farmers in Bindura and surrounding areas</li>
+    <li>Flexible supply — small and bulk quantities</li>
+    <li>WhatsApp orders welcome</li>
+  </ul>
+  <div style="margin-top:1.5rem;">
+    <a href="https://wa.me/263XXXXXXXXX" class="btn btn-primary">Order via WhatsApp</a>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <p class="section-label">Freelance</p>
+  <h2 class="section-title">Professional Services</h2>
+  <div class="divider"></div>
+  <p style="color:var(--muted); font-size:.9rem; margin-bottom:.5rem;">
+    Available for hire on Fiverr (<strong>sirtembo</strong>) and online platforms.
+  </p>
+  <div class="service-grid">
+    <div class="service-item">
+      <h4>School Administration</h4>
+      <p>Policies, timetabling, records, and governance documentation.</p>
+    </div>
+    <div class="service-item">
+      <h4>Educational Writing</h4>
+      <p>Lesson plans, curricula, reports, and academic content.</p>
+    </div>
+    <div class="service-item">
+      <h4>Faith-Based Content</h4>
+      <p>Sermon notes, devotional writing, and church communications.</p>
+    </div>
+    <div class="service-item">
+      <h4>Data & Research Tasks</h4>
+      <p>Online research, data entry, and microtask-style projects.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FARMING -->
+<section id="farming" style="background:#fff;">
+  <p class="section-label">Rural Enterprise</p>
+  <h2 class="section-title">Farming & Livestock</h2>
+  <div class="divider"></div>
+  <p style="color:var(--muted); font-size:.9rem; margin-bottom:1.25rem;">
+    Based near Bindura, we run a small-scale rural enterprise combining livestock and market gardening — built for long-term food security and income generation.
+  </p>
+
+  <div class="info-card">
+    <h3>🐐 Goat Farming</h3>
+    <p>Indigenous goats raised for meat and sale. Hardy, low-maintenance, and well-suited to the local environment. Goats provide a reliable income stream and grow the herd as capital builds.</p>
+  </div>
+
+  <div class="info-card">
+    <h3>🐔 Road Runner Chickens</h3>
+    <p>Free-range road runner chickens raised naturally on local feed. High demand in local markets due to their taste and quality. Low input costs make this an ideal enterprise alongside goats.</p>
+  </div>
+
+  <div class="info-card">
+    <h3>🥬 Market Gardening</h3>
+    <p>Vegetables grown for local sale — the fast cash-generating arm of the enterprise. Tomatoes, leafy greens, and seasonal crops targeting Bindura and nearby community markets.</p>
+  </div>
+
+  <div style="margin-top:1.25rem;">
+    <a href="#contact" class="btn btn-primary">Enquire About Produce</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label">Connect</p>
+  <h2 class="section-title">Get in Touch</h2>
+  <div class="divider"></div>
+  <p class="contact-body">Reach me through any of the channels below. I respond promptly on WhatsApp.</p>
+  <div class="contact-links">
+    <a href="https://wa.me/263XXXXXXXXX" class="contact-link" target="_blank">
+      <span class="contact-icon">💬</span> WhatsApp Me
+    </a>
+    <a href="https://twitter.com/Raymondtemx" class="contact-link" target="_blank">
+      <span class="contact-icon">🐦</span> @Raymondtemx on X / Twitter
+    </a>
+    <a href="https://www.tiktok.com/@sirtembo3" class="contact-link" target="_blank">
+      <span class="contact-icon">🎵</span> @sirtembo3 on TikTok
+    </a>
+    <a href="https://www.fiverr.com/sirtembo" class="contact-link" target="_blank">
+      <span class="contact-icon">💼</span> Hire me on Fiverr
+    </a>
+    <a href="mailto:raymondtembo3000@gmail.com" class="contact-link">
+      <span class="contact-icon">✉️</span> raymondtembo3000@gmail.com
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 <span>Raymond Tembo</span> · JJ Christian College · Bindura, Zimbabwe
+</footer>
+
+</body>
+</html>
